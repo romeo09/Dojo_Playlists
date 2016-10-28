@@ -1,0 +1,22 @@
+<h1>Others Who Added the Song: <%= @song.artist %> - <%= @song.title %></h1><br>
+
+<div class="usersSongsAdded">
+   <table>
+      <thead>
+         <tr>
+            <th>Name:</th>
+            <th>Times Added:</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <%@added_songs.each do |a| %>
+               <td> <a href="/users/<%= a.id %>"><%= a.first_name%> <%= a.last_name%></a></td>
+               <td><%= @songs_added %></td>
+         </tr>
+         <%end%>
+      </tbody>
+   </table>
+</div><hr>
+
+<button type="button" name="profile"><a href="/songs/index/<%= session[:user_id] %>">Back To Songs Library</a></button>
